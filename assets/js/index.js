@@ -83,3 +83,29 @@ function zeroValueAmont(arr){
   }
   return result;
 }
+
+//4.
+
+class Book{
+  constructor(autor, name, year, publishing){
+    this._autor = autor;
+    this._name = name;
+    this._year = year;
+    this._publishing = publishing;
+  }
+  set autor(value){
+    this._autor=value
+  }
+  
+  set name(value){
+    this._name=value;
+  }
+
+  set year(value){
+    this._year=value;
+  }
+
+  set publishing(value){
+    this._publishing=value
+  }
+}
