@@ -3,8 +3,8 @@
 
 
 /** 
- * @param n {number} - non-negative integer
- * @return {number}
+ * @param n {number}  non-negative integer
+ * @return {number}  sum of numbers from 0 to n
 */
 function sum (n){
   let result = 0;
@@ -52,12 +52,23 @@ for(let i = 0; i<25; i++){
   array.push(i)
 }
 
+/**
+ * 
+ * @param arr {array} array of numbers
+ * @returns {undefined} underfined
+ */
 function showValueByEvenIndex(arr){
   for(let i = 0; i <= arr.length; i+=2){
     console.log(arr[i]);
   }
 }
 
+
+/**
+ * 
+ * @param arr {array} array of numbers
+ * @returns {undefined} underfined
+ */
 function showEvenValue(arr){
   for(let i = 0; i <= arr.length; i++){
     if(arr[i]%2 ===0){
@@ -66,6 +77,12 @@ function showEvenValue(arr){
   }
 }
 
+
+/**
+ * 
+ * @param arr {array} array of numbers
+ * @returns {undefined} underfined
+ */
 function showZeroValueIndex(arr){
   for(let i = 0; i <= arr.length; i++){
     if(arr[i] === 0){
@@ -74,6 +91,12 @@ function showZeroValueIndex(arr){
   }
 }
 
+
+/**
+ * 
+ * @param arr {array} array of numbers
+ * @returns {number} amount zero elements of array
+ */
 function zeroValueAmont(arr){
   let result = 0;
   for(let i = 0; i <= arr.length; i++){
@@ -93,19 +116,78 @@ class Book{
     this._year = year;
     this._publishing = publishing;
   }
-  set autor(value){
-    this._autor=value
-  }
-  
-  set name(value){
-    this._name=value;
-  }
+}
 
-  set year(value){
-    this._year=value;
-  }
-
-  set publishing(value){
-    this._publishing=value
+class Ebook extends Book{
+  constructor(autor, name, year, publishing, type, id){
+    super(autor, name, year, publishing);
+    this._type = type;
+    this._id = id;
   }
 }
+
+
+
+//5.
+/**
+ * 
+ * @param {number} n non-negative integer
+ * @returns {undefined} underfined
+ */
+
+function fizzBuzz (n){
+  for(let i=0; i<n; i++){
+    let result = '';
+    if(i%3 ===0){
+      result+='fizz';
+    }
+    if(i%5 === 0){
+      result+='buzz';
+    }
+    if(result === ''){
+      result = i;
+    }
+    console.log(result);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// set autor(value){
+//   this._autor=value
+// }
+
+// set name(value){
+//   this._name=value;
+// }
+
+// set year(value){
+//   this._year=value;
+// }
+
+// set publishing(value){
+//   this._publishing=value
+// }
