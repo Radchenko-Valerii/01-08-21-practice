@@ -20,6 +20,33 @@ class University {
     this._facultas = facultas;
     this._kafedra = kafedra;
   }
+  
+  set kafedra(newKafedra){
+    if(typeof newKafedra !== 'string'){
+      throw new TypeError('newKafedra must be string type')
+    } else {
+      this._kafedra = newKafedra
+    }
+    return this._kafedra;
+  }
+
+  get kafedra(){
+    return this._kafedra;
+  }
+
+  set facultas(newFacultas){
+    if(typeof newFacultas !== 'string'){
+      throw new TypeError('newFacultas must be string type')
+    } else {
+      this._facultas = newFacultas
+    }
+    return this._facultas;
+  }
+
+  get facultas(){
+    return this._facultas;
+  }
+
 }
 
 const university = new University('programm engineering','automatization')
@@ -80,7 +107,6 @@ class Student{
   get isMale(){
     return this._isMale;
   }
-
   
   set phone(newPhone){
     if(typeof newPhone !=='number'){
@@ -126,19 +152,20 @@ class Student{
   get postIndex(){
     return this.contact._postIndex;
   }
+  
 }
 
 const student = new Student('Mike','Tyson',true,380778886611,'steelmike@gmail.com',20851) 
 
 
-function getInfo({name, surname, isMale, kafedra, facultas, contact}){
-  console.log(`fullname: ${name} ${surname} \n
-  isMale: ${isMale} \n
-  kafedra: ${kafedra} of ${facultas} facultas \n
+function getInfo({_name, _surname, _isMale, _kafedra, _facultas, contact}){
+  console.log(`fullname: ${_name} ${_surname} \n
+  isMale: ${_isMale} \n
+  kafedra: ${_kafedra} of ${_facultas} facultas \n
   ---contacts---\n
-  phone number: ${contact.phone}\n
-  e-mail: ${contact.email}\n
-  zip-code: ${contact.postIndex}`);
+  phone number: ${contact._phone}\n
+  e-mail: ${contact._email}\n
+  zip-code: ${contact._postIndex}`);
 }
 
 
