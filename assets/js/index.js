@@ -15,24 +15,121 @@ function sum (n){
 }
 
 //2.
-const university = {
-  facultas: 'programm engineering',
-  kafedra: 'QA automatization'
+class University {
+  constructor(facultas,kafedra){
+    this._facultas = facultas;
+    this._kafedra = kafedra;
+  }
 }
 
+const university = new University('programm engineering','automatization')
 
-const student = {
-  name: 'Mike',
-  surname: 'Tyson',
-  isMale: true,
-  contact: {
-    phone: 380778886611,
-    email: 'steelmike@gmail.com',
-    postIndex: 	20851,
-  },
-  facultas: university.facultas,
-  kafedra: university.kafedra
+const dateYear = new Date().getFullYear();
+
+class Student{
+  constructor(name,surname,isMale,phone,email,postIndex){
+    this._name = name;
+    this._surname = surname;
+    this._isMale = isMale;
+    this._facultas = university._facultas;
+    this._kafedra = university._kafedra;
+    this._dateOfApplication = new Date;
+    this._curse = 1 + this._dateOfApplication.getFullYear() - dateYear;
+    this.contact = {
+      _phone: phone,
+      _email: email,
+      _postIndex: postIndex,
+    }
+  }
+
+  set name(newName){
+    if(typeof newName !== 'string'){
+      throw new TypeError('newName must be string type')
+    } else {
+      this._name = newName
+    }
+    return this._name;
+  }
+  
+  get name(){
+    return this._name;
+  }
+
+  set surname(newSurName){
+    if(typeof newSurName !== 'string'){
+      throw new TypeError('newSurName must be string type')
+    } else {
+      this._surname = newSurName
+    }
+    return this._surname;
+  }
+  
+  get surname(){
+    return this._surname;
+  }
+
+  set isMale(newIsMale){
+    if(typeof newIsMale !== 'boolean'){
+      throw new TypeError('newIsMale must be boolean type')
+    } else {
+      this._isMale = newIsMale
+    }
+    return this._isMale;
+  }
+  
+  get isMale(){
+    return this._isMale;
+  }
+
+  
+  set phone(newPhone){
+    if(typeof newPhone !=='number'){
+          throw new TypeError('newPhonemust be number type');
+        } else if (newPhone/1000000000000<1 || newPhone/10000000000000>1){
+          throw new RangeError('newPhonemust be real (newPhone must have 12-numbers type)')
+        } else{
+          this.contact._phone = newPhone;
+        }
+        return this.contact._phone;
+  }
+
+  get phone(){
+    return this.contact._phone;
+  }
+
+  set email(newEmail){
+    if(typeof newEmail !== 'string'){
+      throw new TypeError('newEmail must be string type')
+    } else if (!newEmail.includes('@') || !newEmail.includes('.') || newEmail.includes(' ')){
+      throw new RangeError("newEmail must be real (newEmail must have '@' & '.', and don't have ' ')")
+    } else{
+      this.contact._email = newEmail;
+    }
+    return this.contact._email;
+  }
+
+  get email(){
+    return this.contact._email;
+  }
+
+  set postIndex(newPostIndex){
+    if(typeof newPostIndex !=='number'){
+      throw new TypeError('newPostIndex be number type')
+    } else if (newPostIndex/100000 <1 || newPostIndex/1000000 > 1){
+      throw new RangeError('newPostIndex be real (newPostIndex must have 6-number)')
+    } else{
+      this.contact._postIndex = newPostIndex;
+    }
+    return this.contact._postIndex;
+  }
+
+  get postIndex(){
+    return this.contact._postIndex;
+  }
 }
+
+const student = new Student('Mike','Tyson',true,380778886611,'steelmike@gmail.com',20851) 
+
 
 function getInfo({name, surname, isMale, kafedra, facultas, contact}){
   console.log(`fullname: ${name} ${surname} \n
